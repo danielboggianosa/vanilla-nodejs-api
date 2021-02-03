@@ -1,6 +1,7 @@
 require('dotenv').config()
 const http = require('http');
 const { indexRoutes } = require('./routes/indexRoutes.js');
+const { database } = require('./database/database')
 
 class Server {
     PORT = process.env.PORT || 5000
@@ -9,6 +10,7 @@ class Server {
 
     constructor() {
         this.routes()
+        this.database()
     }
 
     /**
@@ -54,6 +56,10 @@ class Server {
         this.server.listen(this.PORT, () => {
             console.log("Servidor en el puerto " + this.PORT)
         })
+    }
+
+    database() {
+        database.testConnection()
     }
 
 
