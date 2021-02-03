@@ -29,6 +29,4 @@ class Controller {
 
 const indexController = new Controller();
 
-module.exports = {
-    indexController
-}
+module.exports = { indexController }

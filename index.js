@@ -17,9 +17,17 @@ class Server {
 
     routes(req, res) {
         let found = true
+        let method = req.method
         for (let r of this.registeredRoutes) {
             if (req.url.match(new RegExp(r.url + '.*'))) {
-                r.router.route(r.url, req, res)
+                for (let rr of r.router.registeredRoutes) {
+                    if (req.url.match(new RegExp(r.url + rr.url + '$')) && method == rr.method) {
+                        rr.controller(req, res)
+                        break;
+                    }
+                    else
+                        found = false
+                }
                 break;
             }
             else
@@ -32,7 +40,7 @@ class Server {
     }
 
     use(url, router) {
-        this.registeredRoutes.push({ url: url, router: router })
+        this.registeredRoutes.push({ url, router })
     }
 
     start() {
