@@ -58,7 +58,7 @@ class Server {
         })
     }
 
-    database() {
+    async database() {
         database.testConnection()
     }
 

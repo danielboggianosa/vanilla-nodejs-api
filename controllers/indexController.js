@@ -1,9 +1,19 @@
+const { Registros } = require("../models/registros.model")
 
 class Controller {
     async getIndex(req, res) {
         if (req) {
-            res.writeHead(200, { 'Content-Type': 'application/json' })
-            res.end(JSON.stringify({ msg: 'Bienvenido al index GET' }))
+            await Registros.collection.findOne()
+                .then(d => {
+                    console.log(d)
+                    res.writeHead(200, { 'Content-Type': 'application/json' })
+                    res.end(JSON.stringify(d))
+                })
+                .catch(e => {
+                    console.log(e)
+                    res.writeHead(403, { 'Content-Type': 'application/json' })
+                    res.end()
+                })
         }
     }
     async postIndex(req, res) {
