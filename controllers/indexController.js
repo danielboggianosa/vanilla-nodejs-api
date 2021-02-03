@@ -1,24 +1,24 @@
 
 class Controller {
-    getIndex(req, res) {
+    async getIndex(req, res) {
         if (req) {
             res.writeHead(200, { 'Content-Type': 'application/json' })
             res.end(JSON.stringify({ msg: 'Bienvenido al index GET' }))
         }
     }
-    postIndex(req, res) {
+    async postIndex(req, res) {
         if (req) {
             res.writeHead(200, { 'Content-Type': 'application/json' })
             res.end(JSON.stringify({ msg: 'Bienvenido al index POST' }))
         }
     }
-    putIndex(req, res) {
+    async putIndex(req, res) {
         if (req) {
             res.writeHead(200, { 'Content-Type': 'application/json' })
             res.end(JSON.stringify({ msg: 'Bienvenido al index PUT' }))
         }
     }
-    deleteIndex(req, res) {
+    async deleteIndex(req, res) {
         if (req) {
             res.writeHead(200, { 'Content-Type': 'application/json' })
             res.end(JSON.stringify({ msg: 'Bienvenido al index DELTE' }))
