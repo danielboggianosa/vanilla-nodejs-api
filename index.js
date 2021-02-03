@@ -1,6 +1,5 @@
 require('dotenv').config()
 const http = require('http');
-const { indexController } = require('./controllers/indexController.js');
 const { indexRoutes } = require('./routes/indexRoutes.js');
 
 class Server {
@@ -10,7 +9,6 @@ class Server {
 
     constructor() {
         this.config()
-        this.server = http.createServer((req, res) => { if (req) this.routes(req, res) })
     }
 
     config() {
@@ -38,6 +36,7 @@ class Server {
     }
 
     start() {
+        this.server = http.createServer((req, res) => { if (req) this.routes(req, res) })
         this.server.listen(this.PORT, () => {
             console.log("Servidor en el puerto " + this.PORT)
         })
