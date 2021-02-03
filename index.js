@@ -11,11 +11,15 @@ class Server {
         this.config()
     }
 
+    /**
+     * Esta función sirve para agregar las rutas principales. Debes usar la función "this.use" y pasarle los parámetros URL (String) y ROUTER (Archivo de rutas)
+     */
     config() {
         this.use('/api', indexRoutes)
     }
 
-    routes(req, res) {
+    // Función privada
+    router(req, res) {
         let found = true
         let method = req.method
         for (let r of this.registeredRoutes) {
@@ -39,12 +43,14 @@ class Server {
         }
     }
 
+    // Función privada
     use(url, router) {
         this.registeredRoutes.push({ url, router })
     }
 
+    // Función privada
     start() {
-        this.server = http.createServer((req, res) => { if (req) this.routes(req, res) })
+        this.server = http.createServer((req, res) => { if (req) this.router(req, res) })
         this.server.listen(this.PORT, () => {
             console.log("Servidor en el puerto " + this.PORT)
         })
