@@ -8,13 +8,13 @@ class Server {
     registeredRoutes = []
 
     constructor() {
-        this.config()
+        this.routes()
     }
 
     /**
      * Esta función sirve para agregar las rutas principales. Debes usar la función "this.use" y pasarle los parámetros URL (String) y ROUTER (Archivo de rutas)
      */
-    config() {
+    routes() {
         this.use('/api', indexRoutes)
     }
 

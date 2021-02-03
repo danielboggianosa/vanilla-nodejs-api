@@ -7,13 +7,13 @@ class IndexRoutes {
     registeredRoutes = []
 
     constructor() {
-        this.config();
+        this.routes();
     }
 
     /**
      * Esta función sirve para agregar las rutas secundaras. Debes usar la función "this.use" y pasarle los parámetros MÉTODO (String), URL (String), CONTROLADOR (Función del controlador)
      */
-    config() {
+    routes() {
         this.use('GET', '/', indexController.getIndex)
         this.use('POST', '/', indexController.postIndex)
         this.use('PUT', '/', indexController.putIndex)
