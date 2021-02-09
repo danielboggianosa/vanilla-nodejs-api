@@ -1,9 +1,11 @@
 const { registrosController } = require('../controllers/registros.controller')
 
 class RegistrosRoutes {
-    routes = [
-        { method: 'get', path: '/', controller: registrosController.getOneRegistro }
-    ]
+    routes = {
+        '/': {
+            'get': registrosController.getOneRegistro
+        }
+    }
 }
 
 const registrosRoutes = new RegistrosRoutes()
