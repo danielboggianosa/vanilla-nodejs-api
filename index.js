@@ -3,7 +3,7 @@ const http = require('http');
 const { indexRoutes } = require('./routes/index.routes.js');
 const { database } = require('./database/database');
 const { registrosRoutes } = require('./routes/registros.routes.js');
-const { router } = require('./modules/router')
+const { router } = require('./lib/router')
 
 class Server {
     PORT = process.env.PORT || 5000

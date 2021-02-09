@@ -1,5 +1,4 @@
 const { indexController } = require('../controllers/index.controller');
-const { router } = require('../modules/router');
 
 class IndexRoutes {
     /** NO TOCAR ESTE ARREGLO 
