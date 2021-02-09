@@ -1,8 +1,5 @@
-require('dotenv').config()
 const http = require('http');
 const { indexRoutes } = require('./routes/index.routes.js');
-const { database } = require('./database/database');
-const { registrosRoutes } = require('./routes/registros.routes.js');
 const { router } = require('./lib/router')
 
 class Server {
@@ -12,7 +9,6 @@ class Server {
 
     constructor() {
         this.routes()
-        this.database()
     }
 
     /**
@@ -20,7 +16,6 @@ class Server {
      */
     routes() {
         router.use('/api', indexRoutes)
-        router.use('/registros', registrosRoutes)
     }
 
 
@@ -32,10 +27,6 @@ class Server {
         this.server.listen(this.PORT, () => {
             console.log("Servidor en el puerto " + this.PORT)
         })
-    }
-
-    async database() {
-        database.testConnection()
     }
 
 

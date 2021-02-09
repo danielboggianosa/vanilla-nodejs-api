@@ -1,4 +1,3 @@
-const { Registros } = require("../models/registros.model")
 
 class Controller {
     async getIndex(req, res) {
@@ -10,7 +9,7 @@ class Controller {
     async getIdIndex(req, res) {
         if (req) {
             res.writeHead(200, { 'Content-Type': 'application/json' })
-            res.end(JSON.stringify({ msg: 'Bienvenido al index Con ID ' + req.query.id }))
+            res.end(JSON.stringify({ msg: 'Bienvenido al index Con ID ' + req.params.id }))
         }
     }
     async getDaIndex(req, res) {
