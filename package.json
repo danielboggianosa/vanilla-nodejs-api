@@ -1,7 +1,7 @@
 {
-  "name": "node-mongo-server",
+  "name": "vanilla-nodejs-routing",
   "version": "1.0.0",
-  "description": "Node JS API managing routing without Express",
+  "description": "Node JS API managing routing without Express or any other dependencies",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,7 +11,8 @@
     "nodejs",
     "node api",
     "without express",
-    "no express"
+    "no express",
+    "no dependencies"
   ],
   "author": "Daniel Boggiano",
   "license": "ISC",
